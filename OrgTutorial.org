@@ -1,0 +1,32 @@
+* Tasks
+** DONE Start new org file for tutorial
+   CLOSED: [2017-11-17 Fri 14:37]
+** DONE Outline document
+   CLOSED: [2017-11-17 Fri 14:45]
+** DONE Write introduction
+   CLOSED: [2017-11-17 Fri 14:49]
+** Finish document
+   SCHEDULED: <2017-11-17 Fri>
+
+* Introduction
+
+Org-mode is a personal information management and outlining tool for Emacs. 
+This document is intended to give the reader a "feel" for 
+org-mode and to teach basic operations.
+
+** Obtaining org-mode
+
+You can download org-mode from the
+[[http://staff.science.uva.nl/~dominik/tools/org/]
+
+** Installation
+** Configuration
+
+* The basics
+** Creating a new file
+** Simple task list
+** Using headlines to structure a document
+** Links to other places
+** Adding notes to a task
+** Scheduling an appointment
+** Using the agenda

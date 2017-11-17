@@ -1,0 +1,28 @@
+* Tables
+Hopefully you can see straight away that the simple structure provided
+by org-mode gives a nice way to keep an electronic note book.
+
+Often it is nice to include tables in our notes. Org handles this by
+using | to seperate columns, and a line of --- (inserted with C-c -)
+to add horizontal lines.
+
+Exercise: start typing in this table below; type the first line inserted verbatim
+  1) when you get to the "s" of comments, press TAB to go to the next line
+  2) go up to the previous line and use C-c -
+  3) next enter a few lines of data, using TAB to go through the
+     cells - you should notice the columns changing width as neede
+
+| ID | x |  y | comments       |
+|----+---+----+----------------|
+| A  | 2 |  4 | blah           |
+| B  | 3 |  9 | balh           |
+| C  | 4 | 16 | blah blah blah |
+| D  | 5 | 25 | blah           |
+
+
+| ID | x |  y |
+| A  | 2 |  4 |
+| B  | 3 |  9 |
+| C  | 4 | 16 |
+| D  | 5 | 25 |
+
