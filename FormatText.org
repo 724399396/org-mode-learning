@@ -1,0 +1,105 @@
+* Formatting text
+** Simple foramtting
+You can apply simple formatting to your text by enclosing words in
+special characters. These include
+- /italicised text/
+- *bold text*
+- _underlines_
+- =literal text=
+- ~code~ (generally appears the same as literal text)
+
+** Formatted blocks of the text
+For longer pieces of the text you can enclose the text in blocks marking
+it as a special sort of text. I commonly use these ones
+
+#+BEGIN_EXAMPLE
+This is an example block into which you can type text that you don't want org to
+mess with like a [[link]]. This will typically be rendered in a monospace font when exported.
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+This block encloses text that you want to appear as a quotation
+#+END_QUOTE
+
+You can save time typing out the block wrapper by using shortcuts. Go to
+the start of a new line and type <e and press TAB and it will
+expand to an example block. The same works for <q for quote and <c for centre.
+
+** LaTex
+Org-mode does a good job of understanding snippets of LaTex(a
+[[https://www.latex-project.org/][powerful typesetting language]] used in
+scientific and other technical
+document). For example. it will correctly export simple superscripts
+x^2 or subscripts x_0 or symbols like \alpha, \beta, \game
+
+Org also unsertands more complex LaTex like this
+
+\begin{eqnarray}
+x^2 + \left(\frac{y}{z}\right)^4 = 0
+\end{eqnarray}
+
+but for longer bits of LaTex it is better to use a LaTex block. You
+start one with <l and TAB
+
+*** Source code block
+It is also handy to include source code in your notes - on a new line
+type <s and TAB to create a source block. You can tell org what type
+of code is contained - in this case we'll put in some simple shell 
+code, so well put "sh" at the top of the block.
+
+#+BEGIN_SRC sh
+    echo "Hello $USER! Today is `date`"
+    exit
+#+END_SRC
+
+You can get org to syntax highlight the text in the block by adding
+the following to your [[http://programaticemacs.com/emacs/editing-your-emacs-config-file][emacs config file]] (without the source block
+wrapper of course).
+
+#+BEGIN_SRC elisp
+  ::syntax highlight code blocks
+  (setq org-src-fontify-natively t)
+#+END_SRC
+
+What is more, when the cursor is inside a SRC block, you can use C-c '
+to create a new temporary buffer in the marjor mode of the programming
+language you have specified. Type some code in, and then type C-c '
+again to come back to this buffer.
+
+** Executing source code blocks
+Org-mode can execute your source code blocks and add the output to
+your file. This part of org-mode is called babel. I'll write more
+about this later, but it is too cool to mention here.
+
+For example, take the simple code block we had above:
+
+#+BEGIN_SRC sh
+  echo "Hello $USER! Today is `date`"
+  exit
+#+END_SRC
+
+Put the cursor inside the block and hit C-c C-o to execute it. You
+will be asked to confirm and then you should see the output appear
+like this:
+
+You can do much more with this, like reading input data from a table
+in the same file, creating images that appear in the file, extracting
+(tangling) all the code snippets into one or more files to be executed
+separately, and much more. [[http://orgmode.org/worg/org-contrib/babel/intro.html][Here are some nice examples]].
+
+You can tell org-mode which programming languages to support by adding
+something like the following to your  [[http://pragmaticemacs.com/emacs/editing-your-emacs-config-file/][emacs config file]]:
+
+#+BEGIN_SRC elisp
+:: Some initial languages we want org-babel to support
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (R . t)
+   (ditaa . t)
+   (perl . t)
+   (gnuplot t)
+   ))
+#+END_SRC
